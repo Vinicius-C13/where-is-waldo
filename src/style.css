@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {margin: 0}
+
+img {max-width: 100%;}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+}
+
+.default-container {
+    display: grid;
+    grid-template-columns: 8% 1fr 8%;
+    margin-bottom: 60px;
+}
+
+.default-container > * {
+    grid-column: 2;
+}
