@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-/*import {
+import {
   getAuth,
   onAuthStateChanged,
   GoogleAuthProvider,
@@ -26,10 +26,11 @@ import {
   getDownloadURL,
 } from 'firebase/storage';
 
-import { useCollectionData } from 'react-firebase-hooks/firestore';*/
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import RouteSwitch from './RouteSwitch';
-import './style.css'
+import './style.css';
+import Header from './components/Header';
 
 
 initializeApp({
@@ -44,7 +45,7 @@ initializeApp({
 function App() {
 
   return (
-    <RouteSwitch />
+      <RouteSwitch />
   );
 }
 

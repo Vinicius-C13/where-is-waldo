@@ -21,6 +21,16 @@ export default function LevelItem(props) {
     const levelImg = require(`../assets/${props.img}`);
     const goalImg = require(`../assets/waldo-icon.png`);
 
+    if(props.scoreboard) {
+        return (
+            <div style={{...styleCont, width: '80%', justifySelf: 'center', marginBottom: '40px'}}>
+                <img style={styleImg} src={levelImg} alt='level'/>
+                <div style={{display: 'flex', justifyContent: 'space-between', paddingInline: '5px'}}>
+                    <p style={styleP}>{props.level || 'level'}</p>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div style={styleCont}>
@@ -34,7 +44,7 @@ export default function LevelItem(props) {
                     {/*{props.levelGoals.map((item) => {
                         return <li><img src={item.img} style={{maxHeight: '30px'}}/></li>
                     })}*/}
-                </ul>
+                </ul> 
             </div>
         </div>
     )

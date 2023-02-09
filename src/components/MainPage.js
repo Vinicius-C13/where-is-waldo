@@ -5,29 +5,37 @@ import { Link } from 'react-router-dom';
  
 export default function MainPage() {
 
-    const logoImg = require('../assets/logo-waldo-sombra.png');
-
-    const styleHeader = {
-        height: '130px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginLeft: '-20px'
+    const styleLink = {
+        color: 'white',
+        padding: '8px 12px',
+        textDecoration: 'none',
+        borderRadius: '5px',
+        fontWeight: 'bold',
+        backgroundColor: '#0CABEB'
     }
+
+    const styleScrBrd = {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: '#fafafa',
+        padding: '60px 30px',
+        borderRadius: '5px'
+    }
+
 
     return (
         <div>
-            <header className='default-container' style={{backgroundColor: '#fafafa'}}>
-                <div style={styleHeader}>
-                    <img src={logoImg} alt='logo' style={{maxHeight: '100%'}}/>
-                    <div style={{display: 'flex', gap: '20px'}}>
-                        <Link>Scoreboard</Link>
-                        <Link>About</Link>
-                    </div>
-                </div>
-            </header>
             <LevelsSelector />
-            < Scoreboard />
+            <div className="default-container">
+                <div className="go-to-scoreboard" style={styleScrBrd}>
+                    <h1>
+                        Are you good at find Waldo?<br/>
+                        <span style={{color: '#ec3d38'}}>View the leaderboard</span>
+                    </h1>
+                    <Link to='/scoreboard' style={{...styleLink, backgroundColor: '#ec3d38', height: 'fit-content', fontSize: '24px'}}>Scoreboard</Link>
+                </div>
+            </div>
         </div>
     )
 }

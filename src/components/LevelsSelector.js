@@ -1,7 +1,7 @@
 import React from 'react';
 import LevelItem from './LevelItem';
 
-export default function LevelsSelector() {
+export default function LevelsSelector(props) {
 
     const style ={
         display: 'grid',
@@ -30,7 +30,7 @@ export default function LevelsSelector() {
         <div className="default-container">
             <div className='levels-selector' style={style}>
                 {items.map((item) => {
-                    return <LevelItem img={item.img} level={item.level} />
+                    return <LevelItem key={item.level} img={item.img} level={item.level} scoreboard = {props.scoreboard} />
                 })}
             </div>
         </div>
