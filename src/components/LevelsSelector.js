@@ -30,7 +30,7 @@ export default function LevelsSelector(props) {
         <div className="default-container">
             <div className='levels-selector' style={style}>
                 {items.map((item) => {
-                    return <LevelItem key={item.level} img={item.img} level={item.level} scoreboard = {props.scoreboard} />
+                    return <LevelItem key={item.level} img={item.img} level={item.level} scoreboard={props.scoreboard} handleClick={props.handleClick}/>
                 })}
             </div>
         </div>

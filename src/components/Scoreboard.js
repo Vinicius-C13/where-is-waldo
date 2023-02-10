@@ -30,9 +30,23 @@ initializeApp({
     appId: "1:890404723141:web:03397722cc2c023b70d3ac"
 })
 
-export default function Scoreboard() {
+export default function Scoreboard(props) {
 
-    const rankingQuery = query(collection(getFirestore(), 'scoreboard'), orderBy('time'))
+    const [level, setLevel] = React.useState('scoreboard-l1')
+
+    function getLevelScoreboard() {
+        if(props.level == 'level 1') {
+            setLevel('scoreboard-l1')
+        } else if(props.level == 'level 2') {
+            setLevel('scoreboard-l2')
+        } else if(props.level == 'level 3') {
+            setLevel('scoreboard-l3')
+        } else {console.log('error to find level')}
+    }
+
+    React.useEffect(() => getLevelScoreboard(), [props.level])
+
+    const rankingQuery = query(collection(getFirestore(), level), orderBy('time'))
     const [ranking] = useCollectionData(rankingQuery, {idField: 'id'});
 
     const styleCont = {
@@ -43,7 +57,7 @@ export default function Scoreboard() {
 
     return (
         <div className='scoreboard-container default-container' style={styleCont}>
-            <h2 style={{paddingBlock: '30px', color: '#ec3d38', fontSize: '30px'}}>Scoreboard</h2>
+            <h2 style={{paddingBlock: '30px', color: '#ec3d38', fontSize: '30px'}}>SCOREBOARD: {props.level}</h2>
             <ul>
                 {ranking && ranking.map(
                     doc => {

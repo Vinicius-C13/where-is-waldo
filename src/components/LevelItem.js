@@ -23,7 +23,7 @@ export default function LevelItem(props) {
 
     if(props.scoreboard) {
         return (
-            <div style={{...styleCont, width: '80%', justifySelf: 'center', marginBottom: '40px'}}>
+            <div onClick = {() => props.handleClick(props.level)} style={{...styleCont, width: '80%', justifySelf: 'center'}}>
                 <img style={styleImg} src={levelImg} alt='level'/>
                 <div style={{display: 'flex', justifyContent: 'space-between', paddingInline: '5px'}}>
                     <p style={styleP}>{props.level || 'level'}</p>
